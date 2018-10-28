@@ -29,12 +29,13 @@ fi
 
 
 cd /mnt
-# URL=""
+URL=""
 IMAGE=$2
 if [ -z $2 ];
 then
     IMAGE="ArchLinuxARM-rpi-latest.tar.gz"
-    sudo wget http://os.archlinuxarm.org/os/ArchLinuxARM-rpi-latest.tar.gz
+    URL="http://os.archlinuxarm.org/os/ArchLinuxARM-rpi-latest.tar.gz"
+    sudo wget $URL
 fi
 
 sudo umount $1p1
@@ -59,6 +60,10 @@ su -c 'sync'
 sudo mv root/boot/* boot
 sudo umount boot root
 sudo rm -rf boot root
+if [ ! -z $URL ];
+then 
+    sudo rm $IMAGE
+fi
 echo "Password for alarm is alarm"
 echo "Password for root is root"
 echo "After boot type the following commands:"
