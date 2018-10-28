@@ -1,6 +1,6 @@
 # Installing archlinuxarm
 
-#### A simple script to install arm image of arch into a sdcard to use on raspberrypi.
+#### A simple script to install arm image of arch into a sdcard to boot on raspberrypi.
 
 **USAGE:**
 ```bash
